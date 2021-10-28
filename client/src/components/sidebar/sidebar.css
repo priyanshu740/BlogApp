@@ -1,0 +1,49 @@
+.sidebar{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 5px 3px 19px rgba(0, 0, 0,0.9);
+}
+.sidebarItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+.sidebarItem img{
+    object-fit: cover;
+}
+.sidebarItem p{
+    margin-top: 10px;
+   text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.sidebarTitle{
+    border-top: 1px solid rgb(223, 57, 57);
+    border-bottom: 1px solid rgb(214, 57, 57);
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+    text-align: center;
+    font-weight: 600;
+}
+.sidebar-ul{
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.sidebar-li{
+    display: inline-block;
+    width: 50%;
+    margin-top: 10px;
+    font-weight: 540;
+    text-align: center;
+}
+.sidebar-icons i{
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
