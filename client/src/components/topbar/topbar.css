@@ -31,10 +31,11 @@
     display: flex;
     list-style-type: none;
     justify-content: center;
-   
+    text-decoration: none;
     padding: 0%;
     align-items: center;
 }
+
 .center-ul-li{
    margin-right: 20px;
     font-size: 18px;

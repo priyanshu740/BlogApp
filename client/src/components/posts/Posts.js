@@ -2,15 +2,12 @@ import React from 'react'
 import Post from '../post/Post'
 import './posts.css'
 
-function Posts() {
+function Posts({posts}) {
     return (
         <div className='posts'>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+        {posts.map((p) => (
+            <Post post={p} key={Math.random() + 1}/>
+        ))}
         </div>
     )
 }

@@ -9,6 +9,7 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import Login from './pages/login/Login'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Register from "./pages/Register/Register";
 
 function App() {
   return (
@@ -33,7 +34,9 @@ function App() {
         <Route path='/login'>
         <Login/>
         </Route>
-
+        <Route path='/register'>
+        <Register/>
+        </Route>
       </Switch>
     </Router>
   );

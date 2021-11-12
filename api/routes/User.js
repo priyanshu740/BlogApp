@@ -1,22 +1,51 @@
-import User from '../model/User.js'
 import express from 'express'
+import bcrypt from 'bcrypt'
+import User from '../model/User.js'
+import router from './Authentication.js'
 
-const router = express.Router()
+const route = express.Router()
 
-//register
-router.post("/register",async (req,res) => {
+//GET
+route.get("/:id", async (req,res) => {
     try{
-        const newUser = new User({
-            username:req.body.username,
-            password:req.body.password,
-            email:req.body.email
-        })
-
-        const user = await newUser.save()
+        const user = await User.findById(req.params.id)
+        // const {password,...others} = user._doc
         res.status(200).json(user)
     }catch(err){
-        res.status(500).json(err)
+        console.log(err);
     }
 })
 
-export default router
+//UPDATE
+route.put("/:id", async (req,res) => {
+    if(req.body.userId === req.params.id){
+        if(req.body.password){
+            const salt = await bcrypt.genSalt(10)
+            req.body.password = await bcrypt.hash(req.body.password,salt)
+        }
+        try{
+            const updatedUser = await User.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true})
+            res.status(200).json(updatedUser)
+        }catch(err){
+            console.log(err);
+        }
+    }else{
+        res.status(401).json("You Can not update the user")
+    }
+})
+
+//DELETE
+route.delete("/:id",async (req,res) => {
+    if(req.body.userId === req.params.id){
+        try{
+            await User.findByIdAndDelete(req.params.id)
+            res.status(200).json("user has been deleted successfylly")
+        }catch(err){
+            console.log(err);
+        }
+    }else{
+        res.status(401).json("you can delete only your acccount")
+    }
+})
+
+export default route

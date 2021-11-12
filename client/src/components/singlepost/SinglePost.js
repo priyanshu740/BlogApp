@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 import './singlepost.css'
 
 export default function SinglePost() {
+  const location = useLocation()
+  console.log(location);
+
     return (
         <div className="singlePost">
       <div className="singlePostWrapper">

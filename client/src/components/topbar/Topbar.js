@@ -1,6 +1,7 @@
 import React from 'react'
 import './topbar.css'
 import {Link } from 'react-router-dom'
+import Register from '../../pages/Register/Register'
 function Topbar() {
     return (
         <div className='topbar'>
@@ -30,6 +31,22 @@ function Topbar() {
                 </ul>
             </div>
             <div className='topRight'>
+                <ul className='center-ul'>
+                <li className='center-ul-li'> 
+                    <Link to='/register' className='link'>
+                        <span>
+                            REGISTER
+                        </span>
+                    </Link>
+                </li>
+                <li className="center-ul-li">
+                    <Link to='/login' className='link'>
+                        <span>
+                            LOGIN
+                        </span>
+                    </Link>
+                </li>
+                </ul>
                 <img
                     className="topImg"
                     src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
